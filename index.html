@@ -2,48 +2,10 @@
 <html>
 
 <head>
-  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>pomodoro</title>
-  <style media="screen">
-    body {
-      background-color: #6495ED;
-      text-align: center;
-      font-family: sans-serif;
-      color: white;
-    }
-    .start {
-      width: 20%;
-      display: inline;
-    }
-    #timer, #input,
-    #start {
-      color: white;
-      font-size: 20vmin;
-      background-color: inherit;
-      border: none;
-    }
-    #timer {
-      font-size: 30vw;
-      position: relative;
-      top: 40vh;
-      transform: translateY(-50%);
-    }
-    #input {
-      width: 1.4em;
-      margin-top: 10%;
-      cursor: default;
-    }
-    #input:focus {
-      outline-style: none;
-    }
-    .hide {
-      display: none;
-    }
-    .clicky {
-      cursor: pointer;
-    }
-
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -53,49 +15,7 @@
   <div id="start" class="start clicky" onclick="start()">GO</div>
   <div id="timer" class="hide"></div>
 
-  <script type="text/javascript">
-    "use strict";
-
-    function start() {
-      var input = document.getElementById("input").value;
-      var timeLeft = (60 * input);
-      if (timeLeft != Math.floor(timeLeft)) {
-        alert("whl nmbrz ony plz");
-        document.getElementById("input").value = Math.floor(input);
-      } else {
-        document.getElementById("timer").classList.remove('hide');
-        document.getElementById("start").classList.add('hide');
-        document.getElementById("input").classList.add('hide');
-        document.getElementById("minutes").classList.add('hide');
-        updateDisplay();
-        var clock = setInterval(function () {
-          if (timeLeft == 0) {
-            clearInterval(clock);
-            alert('your tomato is done, sir');
-            document.getElementById("timer").classList.add('clicky');
-            document.getElementById("timer").addEventListener("click", ()=>{
-              document.getElementById("start").classList.remove('hide');
-              document.getElementById("minutes").classList.remove('hide');
-              document.getElementById("input").classList.remove('hide');
-              document.getElementById("timer").classList.add('hide');
-              document.getElementById("timer").classList.remove('clicky');
-            });
-          } else {
-            timeLeft += -1;
-            updateDisplay();
-          }
-        }, 1000);
-      }
-      function updateDisplay() {
-        var seconds = timeLeft % 60;
-        if (seconds < 10) {
-          seconds = ("0" + String(seconds));
-        }
-        var minutes = Math.floor(timeLeft / 60);
-        document.getElementById("timer").innerHTML = minutes + ":" + seconds;
-      }
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 
 </html>

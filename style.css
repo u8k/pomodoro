@@ -1,0 +1,37 @@
+body {
+  background-color: #6495ED;
+  text-align: center;
+  font-family: sans-serif;
+  color: white;
+}
+.start {
+  width: 20%;
+  display: inline;
+}
+#timer, #input,
+#start {
+  color: white;
+  font-size: 20vmin;
+  background-color: inherit;
+  border: none;
+}
+#timer {
+  font-size: 30vw;
+  position: relative;
+  top: 40vh;
+  transform: translateY(-50%);
+}
+#input {
+  width: 1.4em;
+  margin-top: 10%;
+  cursor: default;
+}
+#input:focus {
+  outline-style: none;
+}
+.hide {
+  display: none;
+}
+.clicky {
+  cursor: pointer;
+}
